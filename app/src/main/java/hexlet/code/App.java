@@ -2,18 +2,22 @@ package hexlet.code;
 
 import hexlet.code.game.EvenNumber;
 
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class App {
+    private static final ResourceBundle MESSAGES =
+            ResourceBundle.getBundle("messages");
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("0 - Exit");
+        System.out.println(MESSAGES.getString("menu.title"));
+        System.out.println(MESSAGES.getString("menu.greet"));
+        System.out.println(MESSAGES.getString("menu.exit"));
 
         if (!scanner.hasNextInt()) {
-            System.out.println("Please choose a number between 0 and 1. Please retry the program.");
+            System.out.println(MESSAGES.getString("menu.invalid"));
             return;
         }
 
@@ -22,6 +26,7 @@ public class App {
 
         switch (commandNumber) {
             case 0:
+                System.out.println(MESSAGES.getString("menu.exit_message"));
                 return;
 
             case 1:
@@ -31,7 +36,7 @@ public class App {
                 break;
 
             default:
-                System.out.println("Please choose a number between 0 and 1. Please retry the program.");
+                System.out.println(MESSAGES.getString("menu.invalid"));
         }
     }
 }
