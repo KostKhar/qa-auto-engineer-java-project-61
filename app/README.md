@@ -47,6 +47,9 @@ make lint
 ```bash
 make update
 ```
+```bash
+make play
+```
 
 ## asdf
 

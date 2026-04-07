@@ -5,7 +5,7 @@ export JAVA_HOME := $(BREW_PREFIX)/libexec/openjdk.jdk/Contents/Home
 export PATH := $(JAVA_HOME)/bin:$(PATH)
 endif
 
-.PHONY: setup clean build install run-dist run test report lint check-deps build-run
+.PHONY: setup clean build install run-dist run test report lint check-deps build-run play
 
 setup:
 	./gradlew wrapper --gradle-version 8.13
@@ -36,6 +36,9 @@ lint:
 
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
+
+play:
+	script -q /dev/null asciinema play src/main/resources/game.cast
 
 
 build-run: build run
