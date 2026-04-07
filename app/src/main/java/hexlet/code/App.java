@@ -14,6 +14,7 @@ public class App {
 
         System.out.println(MESSAGES.getString("menu.title"));
         System.out.println(MESSAGES.getString("menu.greet"));
+        System.out.println(MESSAGES.getString("menu.even"));
         System.out.println(MESSAGES.getString("menu.exit"));
 
         if (!scanner.hasNextInt()) {
@@ -30,6 +31,9 @@ public class App {
                 return;
 
             case 1:
+                break;
+
+            case 2:
                 String gamerName = Cli.helloPlayerInGame();
                 EvenNumber evenNumber = new EvenNumber();
                 System.out.println(evenNumber.getAnswer(gamerName));

@@ -12,7 +12,7 @@ public class EvenNumber extends Game {
     }
 
     public int getCode() {
-        int codeGame = 1;
+        int codeGame = 2;
         return codeGame;
     }
 
@@ -37,5 +37,7 @@ public class EvenNumber extends Game {
         }
         return "Congratulations!";
     }
+
+
 
 }
