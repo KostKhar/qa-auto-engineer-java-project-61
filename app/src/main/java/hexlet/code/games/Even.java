@@ -1,26 +1,13 @@
-package hexlet.code.game;
+package hexlet.code.games;
 
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-
-public class EvenNumber extends Game {
-    private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
-    private static final ResourceBundle MESSAGES =
-            ResourceBundle.getBundle("messages");
-
-    public EvenNumber() {
+public class Even extends Game {
+    public Even() {
         super();
-    }
-
-    public int getCode() {
         codeGame = 2;
-        return codeGame;
     }
 
-    public String getAnswer(String gamerName) {
 
+    public String playGame(String gamerName) {
         for (int i = 0; i < 3; i++) {
             int number = random.nextInt();
             System.out.println(MESSAGES.getString("even.rule"));

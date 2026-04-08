@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.game.EvenNumber;
+import hexlet.code.games.Even;
 
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -15,6 +15,7 @@ public class App {
         System.out.println(MESSAGES.getString("menu.title"));
         System.out.println(MESSAGES.getString("menu.greet"));
         System.out.println(MESSAGES.getString("menu.even"));
+        System.out.println(MESSAGES.getString("menu.calc"));
         System.out.println(MESSAGES.getString("menu.exit"));
 
         if (!scanner.hasNextInt()) {
@@ -35,8 +36,8 @@ public class App {
 
             case 2:
                 String gamerName = Cli.helloPlayerInGame();
-                EvenNumber evenNumber = new EvenNumber();
-                System.out.println(evenNumber.getAnswer(gamerName));
+                Even evenNumber = new Even();
+                System.out.println(evenNumber.playGame(gamerName));
                 break;
 
             default:

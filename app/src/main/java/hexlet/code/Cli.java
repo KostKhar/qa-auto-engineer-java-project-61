@@ -11,7 +11,7 @@ public class Cli {
     }
 
     public static String helloPlayerInGame() {
-        System.out.println(MESSAGES.getString("hello.your_name"));
+        System.out.println(MESSAGES.getString("hello"));
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
