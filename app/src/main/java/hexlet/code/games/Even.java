@@ -1,33 +1,30 @@
 package hexlet.code.games;
 
 public class Even extends Game {
+    private Integer number;
+
+
     public Even() {
         super();
         codeGame = 2;
+        this.number = random.nextInt(1000);
     }
 
-
-    public String playGame(String gamerName) {
-        for (int i = 0; i < 3; i++) {
-            int number = random.nextInt();
-            System.out.println(MESSAGES.getString("even.rule"));
-            System.out.println(MESSAGES.getString("even.question") + number);
-
-            String answer = scanner.nextLine().trim().toLowerCase();
-            System.out.println(MESSAGES.getString("even.your_answer") + answer);
-
-            boolean isEven = number % 2 == 0;
-
-            if ((answer.equals("yes") && isEven) || (answer.equals("no") && !isEven)) {
-                System.out.println(MESSAGES.getString("even.correct"));
-            } else {
-                String correct = isEven ? "yes" : "no";
-                return String.format(MESSAGES.getString("even.invalid"), answer, correct, gamerName);
-            }
-        }
-        return MESSAGES.getString("even.congratulations");
+    @Override
+    public String getRules() {
+        return MESSAGES.getString("even.rule");
     }
 
+    @Override
+    public Round generateRound() {
+        number = random.nextInt();
+        return new Round(number.toString(), isEven(number));
+    }
+
+    private String isEven(int number) {
+        boolean even = number % 2 == 0;
+        return even ? "yes" : "no";
+    }
 
 
 }

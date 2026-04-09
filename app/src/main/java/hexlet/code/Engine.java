@@ -3,8 +3,6 @@ package hexlet.code;
 import hexlet.code.games.Game;
 import hexlet.code.games.Round;
 
-import java.sql.SQLOutput;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -20,15 +18,16 @@ public final class Engine {
         System.out.println(game.getRules());
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             Round round = game.generateRound();
-            System.out.println(round.getQuestion());
-            String answer = scanner.nextLine();
-            if(answer.equals(round.getCorrectAnswer())){
-                System.out.println("Correct!");
-            } else{
-                System.out.println(String.format(MESSAGES.getString("even.invalid"), answer, round.getCorrectAnswer(), gamerName));
+            System.out.println(MESSAGES.getString("engine.question") + round.getQuestion());
+            String answer = scanner.nextLine().trim().toLowerCase();
+            System.out.println(MESSAGES.getString("engine.your_answer") + answer);
+            if (answer.equals(round.getCorrectAnswer())) {
+                System.out.println(MESSAGES.getString("engine.correct"));
+            } else {
+                System.out.printf((MESSAGES.getString("engine.invalid")) + "%n", answer, round.getCorrectAnswer(), gamerName);
                 return;
             }
-            System.out.println("Congratulations, "+ gamerName + "!");
+            System.out.println(MESSAGES.getString("engine.congratulations") + gamerName + "!");
         }
     }
 }

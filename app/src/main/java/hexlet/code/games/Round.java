@@ -8,4 +8,9 @@ import lombok.Setter;
 public class Round {
     private String question;
     private String correctAnswer;
+
+    public Round(String question, String correctAnswer) {
+        this.question = question;
+        this.correctAnswer = correctAnswer;
+    }
 }

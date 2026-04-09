@@ -1,7 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Game;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -11,6 +15,10 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        List<Game> games = new LinkedList<>();
+        games.add(new Even());
+        games.add(new Calc());
+
 
         System.out.println(MESSAGES.getString("menu.title"));
         System.out.println(MESSAGES.getString("menu.greet"));
@@ -26,22 +34,10 @@ public class App {
         int commandNumber = scanner.nextInt();
         System.out.println("Your choice: " + commandNumber);
 
-        switch (commandNumber) {
-            case 0:
-                System.out.println(MESSAGES.getString("menu.exit_message"));
-                return;
-
-            case 1:
-                break;
-
-            case 2:
-                String gamerName = Cli.helloPlayerInGame();
-                Even evenNumber = new Even();
-                System.out.println(evenNumber.playGame(gamerName));
-                break;
-
-            default:
-                System.out.println(MESSAGES.getString("menu.invalid"));
+        for (Game game : games) {
+            if (game.getCode() == commandNumber) {
+                Engine.run(game);
+            }
         }
     }
 }
