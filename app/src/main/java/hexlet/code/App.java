@@ -1,13 +1,8 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Game;
+import hexlet.code.games.*;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     private static final ResourceBundle MESSAGES =
@@ -15,9 +10,11 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Game> games = new LinkedList<>();
+        List<Game> games = new ArrayList<>();
+        games.add(new Greet());
         games.add(new Even());
         games.add(new Calc());
+        games.add(new GCD());
 
 
         System.out.println(MESSAGES.getString("menu.title"));
@@ -38,9 +35,9 @@ public class App {
             if (game.getCode() == commandNumber) {
                 Engine.run(game);
                 return;
-            } else {
-                System.out.println(MESSAGES.getString("menu.invalid"));
             }
         }
+        System.out.println(MESSAGES.getString("menu.invalid"));
     }
+
 }

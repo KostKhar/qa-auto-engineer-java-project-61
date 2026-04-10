@@ -53,6 +53,9 @@ make play-even
 ```bash
 make play-calc
 ```
+```bash
+make play-gcd
+```
 
 ## asdf
 

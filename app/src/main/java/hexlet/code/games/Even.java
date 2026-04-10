@@ -3,7 +3,6 @@ package hexlet.code.games;
 public class Even extends Game {
     private Integer number;
 
-
     public Even() {
         codeGame = 2;
         this.number = random.nextInt(100);

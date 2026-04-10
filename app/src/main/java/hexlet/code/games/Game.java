@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 public abstract class Game {
     protected static final ResourceBundle MESSAGES =
             ResourceBundle.getBundle("messages");
-    protected static final Random random = new Random();
+    protected Random random = new Random();
     int codeGame;
 
     public abstract String getRules();

@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
+
 public class Calc extends Game {
     public Calc() {
         codeGame = 3;
     }
 
-    public static char getRandomMathSymbol() {
+    public char getRandomMathSymbol() {
         char[] symbols = {'+', '-', '*'};
         return symbols[random.nextInt(symbols.length)];
     }

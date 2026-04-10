@@ -19,6 +19,9 @@ build:
 install:
 	./gradlew clean install
 
+install-jar:
+	./gradlew installDist
+
 run-dist:
 	./build/install/app/bin/app
 
@@ -43,6 +46,8 @@ play-even:
 play-calc:
 	script -q /dev/null asciinema play src/main/resources/calc.cast
 
+play-gcd:
+	script -q /dev/null asciinema play src/main/resources/gcd.cast
 
 build-run: build run
 
