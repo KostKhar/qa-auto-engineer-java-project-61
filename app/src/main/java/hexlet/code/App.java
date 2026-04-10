@@ -2,7 +2,10 @@ package hexlet.code;
 
 import hexlet.code.games.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class App {
     private static final ResourceBundle MESSAGES =

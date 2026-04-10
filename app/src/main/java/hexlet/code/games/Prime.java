@@ -1,20 +1,9 @@
 package hexlet.code.games;
 
-public class Prime extends Game{
+public class Prime extends Game {
 
     public Prime() {
-        codeGame=6;
-    }
-
-    @Override
-    public String getRules() {
-        return MESSAGES.getString("prime.rule");
-    }
-
-    @Override
-    public Round generateRound() {
-        int number= random.nextInt(100);
-        return new Round(Integer.toString(number), isPrime(number));
+        codeGame = 6;
     }
 
     public static String isPrime(int n) {
@@ -26,5 +15,16 @@ public class Prime extends Game{
             if (n % i == 0 || n % (i + 2) == 0) return "no";
         }
         return "yes";
+    }
+
+    @Override
+    public String getRules() {
+        return MESSAGES.getString("prime.rule");
+    }
+
+    @Override
+    public Round generateRound() {
+        int number = random.nextInt(100);
+        return new Round(Integer.toString(number), isPrime(number));
     }
 }

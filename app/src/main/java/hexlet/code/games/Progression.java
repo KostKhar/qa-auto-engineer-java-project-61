@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public  class Progression extends Game{
+public class Progression extends Game {
     public Progression() {
-        codeGame=5;
+        codeGame = 5;
     }
 
     @Override

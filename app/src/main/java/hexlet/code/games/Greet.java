@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 public class Greet extends Game {
     public Greet() {
-        codeGame=1;
+        codeGame = 1;
     }
 
     @Override
