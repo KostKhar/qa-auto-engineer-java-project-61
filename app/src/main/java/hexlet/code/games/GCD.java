@@ -14,8 +14,8 @@ public class GCD extends Game {
     @Override
     public Round generateRound() {
         int number= random.nextInt(1, 10);
-        int number1=number*random.nextInt(1, 4);
-        int number2=number*random.nextInt(1, 5);
+        int number1=number*random.nextInt(1, 7);
+        int number2=number*random.nextInt(1, 8);
         return new Round(number1+ " " + number2, gcd(number1, number2).toString());
     }
 
