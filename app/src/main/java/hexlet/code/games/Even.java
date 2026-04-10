@@ -5,9 +5,8 @@ public class Even extends Game {
 
 
     public Even() {
-        super();
         codeGame = 2;
-        this.number = random.nextInt(1000);
+        this.number = random.nextInt(100);
     }
 
     @Override

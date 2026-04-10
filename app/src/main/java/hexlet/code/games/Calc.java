@@ -4,13 +4,12 @@ import java.util.Random;
 
 public class Calc extends Game {
     public Calc() {
-        super();
         codeGame = 3;
     }
 
     public static char getRandomMathSymbol() {
         char[] symbols = {'+', '-', '*'};
-        return symbols[new Random().nextInt(symbols.length)];
+        return symbols[random.nextInt(symbols.length)];
     }
 
     @Override
@@ -20,8 +19,8 @@ public class Calc extends Game {
 
     @Override
     public Round generateRound() {
-        int number = random.nextInt();
-        int number1 = random.nextInt();
+        int number = random.nextInt(10);
+        int number1 = random.nextInt(10);
         char mathSymbol = getRandomMathSymbol();
         return new Round(number + " " + mathSymbol + " " + number1, getSummary(number, number1, mathSymbol).toString());
     }

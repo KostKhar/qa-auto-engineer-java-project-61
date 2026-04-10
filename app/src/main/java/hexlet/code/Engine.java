@@ -13,6 +13,9 @@ public final class Engine {
     private static final Scanner scanner = new Scanner(System.in);
     private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("messages");
 
+    private Engine() {
+    }
+
     public static void run(Game game) {
         String gamerName = helloPlayerInGame();
         System.out.println(game.getRules());
@@ -24,10 +27,10 @@ public final class Engine {
             if (answer.equals(round.getCorrectAnswer())) {
                 System.out.println(MESSAGES.getString("engine.correct"));
             } else {
-                System.out.printf((MESSAGES.getString("engine.invalid")) + "%n", answer, round.getCorrectAnswer(), gamerName);
+                System.out.printf((MESSAGES.getString("engine.invalid")), answer, round.getCorrectAnswer(), gamerName);
                 return;
             }
-            System.out.println(MESSAGES.getString("engine.congratulations") + gamerName + "!");
         }
+        System.out.printf(MESSAGES.getString("engine.congratulations"), gamerName);
     }
 }

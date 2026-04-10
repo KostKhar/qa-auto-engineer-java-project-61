@@ -21,9 +21,9 @@ public class App {
 
 
         System.out.println(MESSAGES.getString("menu.title"));
-        System.out.println(MESSAGES.getString("menu.greet"));
-        System.out.println(MESSAGES.getString("menu.even"));
-        System.out.println(MESSAGES.getString("menu.calc"));
+        for (Game game : games) {
+            System.out.println(game.getCode() + " - " + game.getClass().getSimpleName());
+        }
         System.out.println(MESSAGES.getString("menu.exit"));
 
         if (!scanner.hasNextInt()) {
@@ -37,6 +37,9 @@ public class App {
         for (Game game : games) {
             if (game.getCode() == commandNumber) {
                 Engine.run(game);
+                return;
+            } else {
+                System.out.println(MESSAGES.getString("menu.invalid"));
             }
         }
     }
