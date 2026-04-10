@@ -37,8 +37,11 @@ lint:
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
-play:
-	script -q /dev/null asciinema play src/main/resources/game.cast
+play-even:
+	script -q /dev/null asciinema play src/main/resources/even.cast
+
+play-calc:
+	script -q /dev/null asciinema play src/main/resources/calc.cast
 
 
 build-run: build run

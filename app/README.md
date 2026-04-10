@@ -48,7 +48,10 @@ make lint
 make update
 ```
 ```bash
-make play
+make play-even
+```
+```bash
+make play-calc
 ```
 
 ## asdf
