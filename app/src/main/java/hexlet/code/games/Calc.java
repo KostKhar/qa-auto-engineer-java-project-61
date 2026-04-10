@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Calc extends Game {
     public Calc() {
         codeGame = 3;
