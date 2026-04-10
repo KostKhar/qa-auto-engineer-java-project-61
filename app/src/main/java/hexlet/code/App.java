@@ -15,6 +15,7 @@ public class App {
         games.add(new Even());
         games.add(new Calc());
         games.add(new GCD());
+        games.add(new Progression());
 
 
         System.out.println(MESSAGES.getString("menu.title"));

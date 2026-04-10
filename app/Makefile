@@ -48,6 +48,8 @@ play-calc:
 
 play-gcd:
 	script -q /dev/null asciinema play src/main/resources/gcd.cast
+play-prog:
+	script -q /dev/null asciinema play src/main/resources/progression.cast
 
 build-run: build run
 

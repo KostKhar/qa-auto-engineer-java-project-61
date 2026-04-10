@@ -56,6 +56,9 @@ make play-calc
 ```bash
 make play-gcd
 ```
+```bash
+make play-prog
+```
 
 ## asdf
 
