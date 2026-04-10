@@ -16,7 +16,7 @@ public class App {
         games.add(new Calc());
         games.add(new GCD());
         games.add(new Progression());
-
+        games.add(new Prime());
 
         System.out.println(MESSAGES.getString("menu.title"));
         for (Game game : games) {

@@ -59,6 +59,9 @@ make play-gcd
 ```bash
 make play-prog
 ```
+```bash
+make play-prime
+```
 
 ## asdf
 
