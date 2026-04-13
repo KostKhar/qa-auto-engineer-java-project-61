@@ -5,7 +5,7 @@ import java.util.Random;
 public class Even {
     private static Even game;
     private Random random = new Random();
-    private static final String QUESTION= "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String RULE= "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     private Even() {
     }
@@ -17,11 +17,11 @@ public class Even {
         return game;
     }
 
-    public static String getQuestion(){
-        return QUESTION;
+    public static String getRule(){
+        return RULE;
     }
 
-    public int getRandomNumber(){
+    public static int getRandomNumber(){
         return random.nextInt(100);
     }
 
