@@ -17,15 +17,15 @@ public class Even {
         return game;
     }
 
-    public static String getRule(){
+    public  String getRule(){
         return RULE;
     }
 
-    public static int getRandomNumber(){
+    public  int getRandomNumber(){
         return random.nextInt(100);
     }
 
-    public static boolean isEven(int number){
+    public  boolean isEven(int number){
         return  number % 2 == 0;
     }
 

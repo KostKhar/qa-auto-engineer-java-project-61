@@ -2,6 +2,9 @@ package hexlet.code;
 
 public class App {
     public static void main(String[] args) {
-        Cli.helloPlayerInGame();
+        String ganerName = Cli.helloPlayerInGame();
+        Engine engine = new Engine();
+
+        engine.run(ganerName);
     }
 }
