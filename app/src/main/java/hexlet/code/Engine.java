@@ -6,18 +6,15 @@ import hexlet.code.games.Round;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-import static hexlet.code.Cli.helloPlayerInGame;
-
 public final class Engine {
     private static final int ROUNDS_COUNT = 3;
-    private static final Scanner scanner = new Scanner(System.in);
     private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("messages");
 
     private Engine() {
     }
 
-    public static void run(Game game) {
-        String gamerName = helloPlayerInGame();
+    public static void run(Game game, Scanner scanner) {
+        String gamerName = Cli.helloPlayerInGame(scanner);
         System.out.println(game.getRules());
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             Round round = game.generateRound();

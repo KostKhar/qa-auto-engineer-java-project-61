@@ -10,9 +10,8 @@ public class Cli {
     private Cli() {
     }
 
-    public static String helloPlayerInGame() {
+    public static String helloPlayerInGame(Scanner sc) {
         System.out.println(MESSAGES.getString("hello"));
-        Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
         return name;

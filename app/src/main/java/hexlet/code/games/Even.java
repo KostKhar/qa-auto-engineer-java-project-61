@@ -1,11 +1,8 @@
 package hexlet.code.games;
 
 public class Even extends Game {
-    private Integer number;
-
     public Even() {
         codeGame = 2;
-        this.number = random.nextInt(100);
     }
 
     @Override
@@ -15,8 +12,8 @@ public class Even extends Game {
 
     @Override
     public Round generateRound() {
-        number = random.nextInt();
-        return new Round(number.toString(), isEven(number));
+        int number = random.nextInt(100);
+        return new Round(Integer.toString(number), isEven(number));
     }
 
     private String isEven(int number) {

@@ -3,7 +3,9 @@ package hexlet.code;
 import hexlet.code.games.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -14,34 +16,51 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Game> games = new ArrayList<>();
-        games.add(new Greet());
         games.add(new Even());
         games.add(new Calc());
         games.add(new GCD());
         games.add(new Progression());
         games.add(new Prime());
 
+        Map<Integer, Game> gamesByCode = new HashMap<>();
+        for (Game game : games) {
+            int code = game.getCode();
+            if (gamesByCode.containsKey(code)) {
+                throw new IllegalStateException("Duplicate game code: " + code);
+            }
+            gamesByCode.put(code, game);
+        }
+
         System.out.println(MESSAGES.getString("menu.title"));
+        System.out.println("1 - " + MESSAGES.getString("menu.greet"));
         for (Game game : games) {
             System.out.println(game.getCode() + " - " + game.getClass().getSimpleName());
         }
         System.out.println(MESSAGES.getString("menu.exit"));
 
-        if (!scanner.hasNextInt()) {
+        String commandRaw = scanner.nextLine().trim();
+        int commandNumber;
+        try {
+            commandNumber = Integer.parseInt(commandRaw);
+        } catch (NumberFormatException e) {
             System.out.println(MESSAGES.getString("menu.invalid"));
             return;
         }
 
-        int commandNumber = scanner.nextInt();
-        System.out.println("Your choice: " + commandNumber);
-
-        for (Game game : games) {
-            if (game.getCode() == commandNumber) {
-                Engine.run(game);
-                return;
-            }
+        if (commandNumber == 1) {
+            Cli.helloPlayerInGame(scanner);
+            return;
         }
-        System.out.println(MESSAGES.getString("menu.invalid"));
+        if (commandNumber == 0) {
+            return;
+        }
+
+        Game chosen = gamesByCode.get(commandNumber);
+        if (chosen == null) {
+            System.out.println(MESSAGES.getString("menu.invalid"));
+            return;
+        }
+        Engine.run(chosen, scanner);
     }
 
 }
