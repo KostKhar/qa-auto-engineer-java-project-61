@@ -7,41 +7,49 @@ import java.util.Scanner;
 
 public class Engine {
 
-    private static final int COUNT_OF_ROUND_GAMES = 3;
-    private Calc mCalc;
-    private Even mEven;
-    private Scanner scanner= new Scanner(System.in);
-
-    public  void run(String gamerName) {
-        int gameId = Integer.parseInt(scanner.nextLine());
-        for(int  i = 0; i < COUNT_OF_ROUND_GAMES; i++) {
-            ruleByGame(gameId);
-            getAnswerGame(gameId);
-        }
-        System.out.printf("Congratulations, %s!", gamerName);
+    public enum GameId {
+        EVEN,
+        CALC
     }
 
-    public String ruleByGame(int gameId){
-        switch (gameId) {
-            case 1:
-                return mEven.getRule();
-            case 2:
-                return mCalc.getGame();
-            default:
-                throw new IllegalArgumentException("Invalid game id");
-        }
-    }
+    private static final int MAX_ROUNDS = 3;
 
+    public static void run(GameId gameId, String gamerName, Scanner scanner) {
+        System.out.println(getRules(gameId));
 
-    public String getAnswerGame(int gameId){
-            switch (gameId) {
-                case 1:
-                    return String.valueOf(mEven.getRandomNumber());
-                case 2:
-                    return mCalc.getAnswer();
-                default:
-                    throw new IllegalArgumentException("Invalid game id");
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            String[] round = generateRound(gameId);
+            String question = round[0];
+            String correctAnswer = round[1];
+
+            System.out.println("Question: " + question);
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.nextLine().trim();
+
+            if (!userAnswer.equals(correctAnswer)) {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(.");
+                System.out.println("Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + gamerName + "!");
+                return;
             }
+
+            System.out.println("Correct!");
         }
 
+        System.out.println("Congratulations, " + gamerName + "!");
+    }
+
+    private static String getRules(GameId gameId) {
+        return switch (gameId) {
+            case EVEN -> Even.getRules();
+            case CALC -> Calc.getRules();
+        };
+    }
+
+    private static String[] generateRound(GameId gameId) {
+        return switch (gameId) {
+            case EVEN -> Even.generateRound();
+            case CALC -> Calc.generateRound();
+        };
+    }
 }

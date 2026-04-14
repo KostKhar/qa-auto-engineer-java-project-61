@@ -2,31 +2,21 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Even {
-    private static Even game;
-    private Random random = new Random();
-    private static final String RULE= "Answer 'yes' if the number is even, otherwise answer 'no'.";
+public final class Even {
+    private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
+    private static final Random RANDOM = new Random();
 
     private Even() {
     }
 
-    public static Even getGame(){
-        if (game == null) {
-            game = new Even();
-        }
-        return game;
-    }
-
-    public  String getRule(){
+    public static String getRules() {
         return RULE;
     }
 
-    public  int getRandomNumber(){
-        return random.nextInt(100);
+    public static String[] generateRound() {
+        int number = RANDOM.nextInt(MAX_RANDOM_NUMBER_EXCLUSIVE);
+        String correctAnswer = (number % 2 == 0) ? "yes" : "no";
+        return new String[]{String.valueOf(number), correctAnswer};
     }
-
-    public  boolean isEven(int number){
-        return  number % 2 == 0;
-    }
-
 }

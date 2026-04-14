@@ -2,52 +2,37 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class Calc {
+public final class Calc {
+    private static final String RULE = "What is the result of the expression?";
+    private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 10;
+    private static final Random RANDOM = new Random();
+    private static final char[] OPERATIONS = {'+', '-', '*'};
 
-    private Calc game;
-    private Random random = new Random();
-    private int number;
-    private int number1;
-    private char mathSymbol;
-    private static final String RULE= "What is the result of the expression?";
-
-
-    public Calc() {
+    private Calc() {
     }
 
-    public String getGame() {
-        if (game == null) {
-            game = new Calc();
-        }
-        return RULE +"\nQuestion:" +  getRandomMathQuestion() + "\nYour answer:";
+    public static String getRules() {
+        return RULE;
     }
 
-    public  String getAnswer(){
-        return String.valueOf(getSummary(number, number1, mathSymbol));
+    public static String[] generateRound() {
+        int a = RANDOM.nextInt(MAX_RANDOM_NUMBER_EXCLUSIVE);
+        int b = RANDOM.nextInt(MAX_RANDOM_NUMBER_EXCLUSIVE);
+        char op = randomOperation();
+        int result = calculate(a, b, op);
+        return new String[]{a + " " + op + " " + b, String.valueOf(result)};
     }
 
-
-
-    public char getRandomMathSymbol() {
-        char[] symbols = {'+', '-', '*'};
-        return symbols[random.nextInt(symbols.length)];
+    private static char randomOperation() {
+        return OPERATIONS[RANDOM.nextInt(OPERATIONS.length)];
     }
 
-
-    public String getRandomMathQuestion() {
-        this.number = random.nextInt(10);
-        this.number1 = random.nextInt(10);
-        this.mathSymbol = getRandomMathSymbol();
-        return number + " " + mathSymbol + " " + number1;
-    }
-
-    public int getSummary(int n, int n1, char mathSymbol) {
-        return switch (mathSymbol) {
-            case '+' -> n + n1;
-            case '-' -> n - n1;
-            case '*' -> n * n1;
+    private static int calculate(int a, int b, char op) {
+        return switch (op) {
+            case '+' -> a + b;
+            case '-' -> a - b;
+            case '*' -> a * b;
             default -> throw new IllegalArgumentException("Invalid math symbol");
         };
     }
-
 }

@@ -1,29 +1,53 @@
 package hexlet.code;
 
+
+
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class App {
 
-    static Logger logger = Logger.getLogger(App.class.getName());
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final int COMMAND_EXIT = 0;
+    private static final int COMMAND_GREET = 1;
+    private static final int COMMAND_EVEN = 2;
+    private static final int COMMAND_CALC = 3;
 
     public static void main(String[] args) {
-        String ganerName = Cli.helloPlayerInGame();
 
-        logger.info("Please enter the game number and press Enter.");
-        logger.info(MESSAGES.getString("menu.exit"));
+        Scanner scanner = new Scanner(System.in);
 
-        if (!scanner.hasNextInt()) {
-            logger.info(MESSAGES.getString("menu.invalid"));
+        String gamerName = CliUtility.helloPlayerInGame(scanner);
+
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println(COMMAND_EXIT + " - Exit");
+        System.out.println(COMMAND_GREET + " - Greet");
+        System.out.println(COMMAND_EVEN + " - Even");
+        System.out.println(COMMAND_CALC + " - Calc");
+
+        String choiceLine = scanner.nextLine().trim();
+        int commandNumber;
+        try {
+            commandNumber = Integer.parseInt(choiceLine);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please choose a number between "
+                    + COMMAND_EXIT + " and " + COMMAND_CALC + ".");
+            return;
+        }
+        System.out.println("Your choice: " + commandNumber);
+
+        if (commandNumber == COMMAND_EXIT) {
+            System.out.println("Bye, " + gamerName + "!");
             return;
         }
 
-        int commandNumber = scanner.nextInt();
-        logger.info("Your choice: " +commandNumber);
-
-        Engine engine = new Engine();
-
-        engine.run(ganerName);
+        switch (commandNumber) {
+            case COMMAND_GREET -> System.out.println("Hello, " + gamerName + "!");
+            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, gamerName, scanner);
+            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
+            default -> System.out.println("Unknown command. Please choose "
+                    + COMMAND_EXIT + ", "
+                    + COMMAND_GREET + ", "
+                    + COMMAND_EVEN + " or "
+                    + COMMAND_CALC + ".");
+        }
     }
 }

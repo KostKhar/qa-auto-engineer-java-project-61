@@ -42,10 +42,20 @@ tasks.test {
     }
 }
 
+val slf4jVersion = "2.0.13"
+val logbackVersion = "1.5.6"
+val junitVersion = "5.12.2"
+val commonsLangVersion = "3.17.0"
+val commonsCollections4Version = "4.4"
+
 dependencies {
-    implementation("org.apache.commons:commons-lang3:3.17.0")
-    implementation("org.apache.commons:commons-collections4:4.4")
-    testImplementation(platform("org.junit:junit-bom:5.12.2"))
+    implementation("org.apache.commons:commons-lang3:$commonsLangVersion")
+    implementation("org.apache.commons:commons-collections4:$commonsCollections4Version")
+
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    runtimeOnly("ch.qos.logback:logback-classic:$logbackVersion")
+
+    testImplementation(platform("org.junit:junit-bom:$junitVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
