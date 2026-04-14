@@ -12,9 +12,6 @@ public class App {
         String ganerName = Cli.helloPlayerInGame();
 
         logger.info("Please enter the game number and press Enter.");
-        for (Game game : games) {
-            System.out.println(game.getCode() + " - " + game.getClass().getSimpleName());
-        }
         logger.info(MESSAGES.getString("menu.exit"));
 
         if (!scanner.hasNextInt()) {
