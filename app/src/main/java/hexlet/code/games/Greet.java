@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Round;
 
-public class Greet extends Game {
+public final class Greet extends Game {
     public Greet() {
         codeGame = 1;
     }

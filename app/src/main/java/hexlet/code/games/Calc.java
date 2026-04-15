@@ -3,7 +3,7 @@ package hexlet.code.games;
 
 import hexlet.code.Round;
 
-public class Calc extends Game {
+public final class Calc extends Game {
     public Calc() {
         codeGame = 3;
     }

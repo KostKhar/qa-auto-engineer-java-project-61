@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class Cli {
+public final class Cli {
     private static final ResourceBundle MESSAGES =
             ResourceBundle.getBundle("messages");
 
