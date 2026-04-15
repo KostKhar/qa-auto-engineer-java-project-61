@@ -5,7 +5,7 @@ export JAVA_HOME := $(BREW_PREFIX)/libexec/openjdk.jdk/Contents/Home
 export PATH := $(JAVA_HOME)/bin:$(PATH)
 endif
 
-.PHONY: setup clean build installDist run-dist run test report lint check-deps build-run play
+.PHONY: setup clean build install run-dist run test report lint check-deps build-run play
 
 setup:
 	./gradlew wrapper --gradle-version 8.13
@@ -16,7 +16,7 @@ clean:
 build:
 	./gradlew clean build
 
-installDist:
+install:
 	./gradlew installDist
 
 run-dist:
