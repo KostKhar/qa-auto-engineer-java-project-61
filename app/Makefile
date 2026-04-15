@@ -17,10 +17,8 @@ build:
 	./gradlew clean build
 
 installDist:
-	./gradlew clean install
-
-install-jar:
 	./gradlew installDist
+
 
 run-dist:
 	./build/install/app/bin/app
@@ -30,9 +28,6 @@ run:
 
 test:
 	./gradlew test
-
-report:
-	./gradlew jacocoTestReport
 
 lint:
 	./gradlew checkstyleMain
