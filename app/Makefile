@@ -19,7 +19,6 @@ build:
 installDist:
 	./gradlew installDist
 
-
 run-dist:
 	./build/install/app/bin/app
 
@@ -43,8 +42,10 @@ play-calc:
 
 play-gcd:
 	script -q /dev/null asciinema play src/main/resources/gcd.cast
+
 play-prog:
 	script -q /dev/null asciinema play src/main/resources/progression.cast
+
 play-prime:
 	script -q /dev/null asciinema play src/main/resources/prime.cast
 
