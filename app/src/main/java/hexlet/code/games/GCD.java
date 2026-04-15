@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Round;
+
 public class GCD extends Game {
 
     public GCD() {

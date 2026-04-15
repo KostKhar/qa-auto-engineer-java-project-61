@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Round;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

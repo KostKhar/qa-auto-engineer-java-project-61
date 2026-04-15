@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Round;
+
 public class Even extends Game {
     public Even() {
         codeGame = 2;
