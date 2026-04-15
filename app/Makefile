@@ -16,7 +16,7 @@ clean:
 build:
 	./gradlew clean build
 
-install:
+installDist:
 	./gradlew clean install
 
 install-jar:
