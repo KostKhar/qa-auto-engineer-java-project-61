@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
-public class Greet  {
+public final class Greet  {
 
     public static String getRules() {
-        return "";
+        return "empty";
     }
 
     public static String[] generateRound() {
