@@ -1,27 +1,23 @@
 package hexlet.code.games;
 
-import hexlet.code.Round;
+import java.util.Random;
 
-public class GCD extends Game {
+public final class GCD  {
+    private static final String RULE = "Find the greatest common divisor of given numbers.";
+    private static final Random RANDOM = new Random();
 
-    public GCD() {
-        codeGame = 4;
-    }
-
-    @Override
     public String getRules() {
-        return MESSAGES.getString("gsd.rule");
+        return RULE;
     }
 
-    @Override
-    public Round generateRound() {
-        int number = random.nextInt(1, 10);
-        int number1 = number * random.nextInt(1, 7);
-        int number2 = number * random.nextInt(1, 8);
-        return new Round(number1 + " " + number2, gcd(number1, number2).toString());
+    public static String[] generateRound() {
+        int number = RANDOM.nextInt(1, 10);
+        int number1 = number * RANDOM.nextInt(1, 7);
+        int number2 = number * RANDOM.nextInt(1, 8);
+        return new String[]{number1 + " " + number2, gcd(number1, number2).toString()};
     }
 
-    private Integer gcd(int a, int b) {
+    private static Integer gcd(int a, int b) {
         a = Math.abs(a);
         b = Math.abs(b);
         while (b != 0) {
@@ -31,4 +27,8 @@ public class GCD extends Game {
         }
         return a;
     }
+
+    private GCD() {
+    }
+
 }

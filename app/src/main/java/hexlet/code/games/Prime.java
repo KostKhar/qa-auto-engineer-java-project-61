@@ -1,11 +1,13 @@
 package hexlet.code.games;
 
-import hexlet.code.Round;
+import java.util.Random;
 
-public class Prime extends Game {
+public final class Prime {
+    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
+    private static final Random RANDOM = new Random();
 
-    public Prime() {
-        codeGame = 6;
+    private Prime() {
     }
 
     public static String isPrime(int n) {
@@ -19,14 +21,12 @@ public class Prime extends Game {
         return "yes";
     }
 
-    @Override
-    public String getRules() {
-        return MESSAGES.getString("prime.rule");
+    public  static  String getRules() {
+        return RULE;
     }
 
-    @Override
-    public Round generateRound() {
-        int number = random.nextInt(100);
-        return new Round(Integer.toString(number), isPrime(number));
+    public static String[] generateRound() {
+        int number = RANDOM.nextInt(MAX_RANDOM_NUMBER_EXCLUSIVE);
+        return new String[]{Integer.toString(number), isPrime(number)};
     }
 }
