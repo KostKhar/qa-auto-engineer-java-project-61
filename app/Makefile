@@ -45,8 +45,10 @@ play-calc:
 
 play-gcd:
 	script -q /dev/null asciinema play src/main/resources/gcd.cast
+
 play-prog:
 	script -q /dev/null asciinema play src/main/resources/progression.cast
+
 play-prime:
 	script -q /dev/null asciinema play src/main/resources/prime.cast
 

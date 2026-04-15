@@ -1,7 +1,6 @@
 package hexlet.code;
 
 
-
 import java.util.Scanner;
 
 public class App {
@@ -49,7 +48,7 @@ public class App {
             case COMMAND_GREET -> System.out.println("Hello, " + gamerName + "!");
             case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, gamerName, scanner);
             case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
-            case COMMAND_GCD -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
+            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, gamerName, scanner);
             case COMMAND_PRIME -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
             case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
             default -> System.out.println("Unknown command. Please choose "
@@ -59,8 +58,8 @@ public class App {
                     + COMMAND_CALC + ", "
                     + COMMAND_GCD + ", "
                     + COMMAND_PRIME + " or "
-                    + COMMAND_PROGRESSION +
-                    ".");
+                    + COMMAND_PROGRESSION
+                    + ".");
         }
     }
 }

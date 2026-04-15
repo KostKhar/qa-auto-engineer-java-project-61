@@ -13,11 +13,6 @@ public final class Progression {
     private Progression() {
     }
 
-    public String getRules() {
-        return RULE;
-    }
-
-
     public static String[] generateRound() {
         List<Integer> progression = generateProgression();
         int missingIndex = RANDOM.nextInt(progression.size());
@@ -40,5 +35,9 @@ public final class Progression {
             progression.add(start + i * step);
         }
         return progression;
+    }
+
+    public static String getRules() {
+        return RULE;
     }
 }

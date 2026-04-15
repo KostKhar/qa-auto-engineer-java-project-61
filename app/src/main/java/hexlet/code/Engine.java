@@ -1,16 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
 public class Engine {
-
-    public enum GameId {
-        EVEN,
-        CALC
-    }
 
     private static final int MAX_ROUNDS = 3;
 
@@ -43,6 +37,9 @@ public class Engine {
         return switch (gameId) {
             case EVEN -> Even.getRules();
             case CALC -> Calc.getRules();
+            case GCD -> GCD.getRules();
+            case PRIME -> Prime.getRules();
+            case PROGRESSION -> Progression.getRules();
         };
     }
 
@@ -50,6 +47,17 @@ public class Engine {
         return switch (gameId) {
             case EVEN -> Even.generateRound();
             case CALC -> Calc.generateRound();
+            case GCD -> GCD.generateRound();
+            case PRIME -> Prime.generateRound();
+            case PROGRESSION -> Progression.generateRound();
         };
+    }
+
+    public enum GameId {
+        EVEN,
+        CALC,
+        GCD,
+        PRIME,
+        PROGRESSION
     }
 }
