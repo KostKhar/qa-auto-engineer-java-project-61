@@ -2,12 +2,12 @@ package hexlet.code.games;
 
 public class Greet  {
 
-    public String getRules() {
+    public static String getRules() {
         return "";
     }
 
-    public Round generateRound() {
-        return null;
+    public static String[] generateRound() {
+        return new String[]{};
     }
 
     private Greet() {
