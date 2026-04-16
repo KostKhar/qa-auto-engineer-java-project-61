@@ -5,10 +5,10 @@ export JAVA_HOME := $(BREW_PREFIX)/libexec/openjdk.jdk/Contents/Home
 export PATH := $(JAVA_HOME)/bin:$(PATH)
 endif
 
-.PHONY: setup clean build installDist run-dist run test report lint check-deps build-run play
+.DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew wrapper --gradle-version 8.13
+	./gradlew wrapper --gradle-version 9.2.1
 
 clean:
 	./gradlew clean
@@ -16,11 +16,11 @@ clean:
 build:
 	./gradlew clean build
 
-installDist:
-	./gradlew installDist
+install:
+	./gradlew clean install
 
 run-dist:
-	./build/install/app/bin/app
+	./build/install/java-package/bin/java-package
 
 run:
 	./gradlew run
@@ -28,11 +28,15 @@ run:
 test:
 	./gradlew test
 
-lint:
-	./gradlew checkstyleMain
+report:
+	./gradlew jacocoTestReport
 
-check-deps:
-	./gradlew dependencyUpdates -Drevision=release
+lint:
+	./gradlew spotlessApply
+
+update-deps:
+	./gradlew refreshVersions
+	# ./gradlew dependencyUpdates -Drevision=release
 
 play-even:
 	script -q /dev/null asciinema play src/main/resources/even.cast
@@ -50,4 +54,6 @@ play-prime:
 	script -q /dev/null asciinema play src/main/resources/prime.cast
 
 build-run: build run
+
+.PHONY: build
 
