@@ -40,7 +40,6 @@ public class App {
         System.out.println("Your choice: " + commandNumber);
 
         if (commandNumber == COMMAND_EXIT) {
-            System.out.println("Bye, " + gamerName + "!");
             return;
         }
 
@@ -49,8 +48,8 @@ public class App {
             case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, gamerName, scanner);
             case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
             case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, gamerName, scanner);
-            case COMMAND_PRIME -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
-            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
+            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, gamerName, scanner);
+            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, gamerName, scanner);
             default -> System.out.println("Unknown command. Please choose "
                     + COMMAND_EXIT + ", "
                     + COMMAND_GREET + ", "
