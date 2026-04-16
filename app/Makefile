@@ -8,7 +8,7 @@ endif
 .DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew --no-daemon wrapper --gradle-version 8.13
+	./gradlew wrapper --gradle-version 8.13
 
 clean:
 	./gradlew clean
