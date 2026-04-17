@@ -1,12 +1,19 @@
 package hexlet.code;
 
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class Cli {
-    public static void helloPlayerInGame() {
-        System.out.println("Welcome to the Brain Games! \nMay I have your name?");
-        Scanner sc = new Scanner(System.in);
+public final class Cli {
+    private static final ResourceBundle MESSAGES =
+            ResourceBundle.getBundle("messages");
+
+    private Cli() {
+    }
+
+    public static String helloPlayerInGame(Scanner sc) {
+        System.out.println(MESSAGES.getString("hello"));
         String name = sc.nextLine();
         System.out.println("Hello, " + name + "!");
+        return name;
     }
 }
