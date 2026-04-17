@@ -9,7 +9,7 @@ plugins {
     id("io.freefair.lombok") version "8.13.1"
     id("com.github.ben-manes.versions") version "0.52.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("org.sonarqube") version "6.0.1.5171"
+    id("org.sonarqube") version "7.2.3.7755"
 }
 
 group = "hexlet.code"
@@ -60,10 +60,9 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-sonarqube {
-    properties {
-        property("sonar.projectKey", "hexlet-boilerplates_java-package")
-        property("sonar.organization", "hexlet-boilerplates")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
+sonar {
+  properties {
+    property("sonar.projectKey", "KostKhar_qa-auto-engineer-java-project-61")
+    property("sonar.organization", "kostkhar")
+  }
 }
