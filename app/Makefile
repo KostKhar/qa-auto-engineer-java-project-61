@@ -17,7 +17,10 @@ build:
 	./gradlew clean build
 
 install:
-	./gradlew clean installDist
+	./gradlew clean installDist --no-daemon
+
+install:
+	./gradlew clean installShadowDist --no-daemon
 
 run-dist:
 	./build/install/java-package/bin/java-package
