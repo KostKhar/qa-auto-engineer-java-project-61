@@ -9,7 +9,7 @@ plugins {
     id("io.freefair.lombok") version "8.13.1"
     id("com.github.ben-manes.versions") version "0.52.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("org.sonarqube") version "6.0.1.5171"
+    id("org.sonarqube") version "7.2.3.7755"
 }
 
 group = "hexlet.code"
@@ -42,18 +42,27 @@ tasks.test {
     }
 }
 
+val slf4jVersion = "2.0.13"
+val logbackVersion = "1.5.6"
+val junitVersion = "5.12.2"
+val commonsLangVersion = "3.17.0"
+val commonsCollections4Version = "4.4"
+
 dependencies {
-    implementation("org.apache.commons:commons-lang3:3.17.0")
-    implementation("org.apache.commons:commons-collections4:4.4")
-    testImplementation(platform("org.junit:junit-bom:5.12.2"))
+    implementation("org.apache.commons:commons-lang3:$commonsLangVersion")
+    implementation("org.apache.commons:commons-collections4:$commonsCollections4Version")
+
+    implementation("org.slf4j:slf4j-api:$slf4jVersion")
+    runtimeOnly("ch.qos.logback:logback-classic:$logbackVersion")
+
+    testImplementation(platform("org.junit:junit-bom:$junitVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-sonarqube {
-    properties {
-        property("sonar.projectKey", "hexlet-boilerplates_java-package")
-        property("sonar.organization", "hexlet-boilerplates")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
+sonar {
+  properties {
+    property("sonar.projectKey", "KostKhar_qa-auto-engineer-java-project-61")
+    property("sonar.organization", "kostkhar")
+  }
 }
