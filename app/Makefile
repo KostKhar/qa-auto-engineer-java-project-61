@@ -17,7 +17,7 @@ build:
 	./gradlew clean build
 
 install:
-	./gradlew clean install
+	./gradlew clean installDist --no-daemon
 
 run-dist:
 	./build/install/app/bin/app
