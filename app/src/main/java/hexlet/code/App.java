@@ -1,6 +1,8 @@
 package hexlet.code;
 
 
+import hexlet.code.games.Greet;
+
 import java.util.Scanner;
 
 public class App {
@@ -17,7 +19,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        String gamerName = CliUtility.helloPlayerInGame(scanner);
+        String gamerName = Greet.helloPlayerInGame(scanner);
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println(COMMAND_EXIT + " - Exit");
