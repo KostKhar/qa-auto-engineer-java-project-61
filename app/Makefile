@@ -32,11 +32,10 @@ report:
 	./gradlew jacocoTestReport
 
 lint:
-	./gradlew spotlessApply
+	./gradlew check
 
 update-deps:
 	./gradlew refreshVersions
-	# ./gradlew dependencyUpdates -Drevision=release
 play-even:
 	script -q /dev/null asciinema play src/main/resources/even.cast
 
