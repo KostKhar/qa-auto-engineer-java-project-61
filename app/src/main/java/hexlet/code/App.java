@@ -1,8 +1,6 @@
 package hexlet.code;
 
 
-import hexlet.code.games.Greet;
-
 import java.util.Scanner;
 
 public class App {
@@ -19,7 +17,6 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        String gamerName = Greet.helloPlayerInGame(scanner);
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println(COMMAND_EXIT + " - Exit");
@@ -46,12 +43,12 @@ public class App {
         }
 
         switch (commandNumber) {
-            case COMMAND_GREET -> System.out.println("Hello, " + gamerName + "!");
-            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, gamerName, scanner);
-            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
-            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, gamerName, scanner);
-            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, gamerName, scanner);
-            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, gamerName, scanner);
+            case COMMAND_GREET ->  CliUtility.helloPlayerInGame(scanner);
+            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, scanner);
+            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, scanner);
+            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, scanner);
+            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, scanner);
+            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, scanner);
             default -> System.out.println("Unknown command. Please choose "
                     + COMMAND_EXIT + ", "
                     + COMMAND_GREET + ", "
