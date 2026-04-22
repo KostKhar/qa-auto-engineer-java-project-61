@@ -6,9 +6,12 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public final class Progression {
-    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String RULE = "What number is missing in the progression?";
     private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
     private static final Random RANDOM = new Random();
+    private static final int MAX_STEP = 5;
+    private static final int MIN_STEP = 1;
+    private static final int LENGTH_OF_ARRAY = 10;
 
     private Progression() {
     }
@@ -28,8 +31,8 @@ public final class Progression {
 
     private static List<Integer> generateProgression() {
         int start = RANDOM.nextInt(MAX_RANDOM_NUMBER_EXCLUSIVE); // начальное число
-        int step = RANDOM.nextInt(5) + 1; // шаг от 1 до 5
-        int length = 10;
+        int step = RANDOM.nextInt(MAX_STEP) + MIN_STEP;
+        int length = LENGTH_OF_ARRAY;
         List<Integer> progression = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             progression.add(start + i * step);

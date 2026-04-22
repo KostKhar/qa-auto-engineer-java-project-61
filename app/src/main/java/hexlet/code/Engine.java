@@ -13,7 +13,9 @@ public class Engine {
 
     private static final int MAX_ROUNDS = 3;
 
-    public static void run(GameId gameId, String gamerName, Scanner scanner) {
+    public static void run(GameId gameId, Scanner scanner) {
+        String gamerName = CliUtility.helloPlayerInGame(scanner);
+
         System.out.println(getRules(gameId));
 
         for (int i = 0; i < MAX_ROUNDS; i++) {

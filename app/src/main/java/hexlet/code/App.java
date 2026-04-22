@@ -10,14 +10,13 @@ public class App {
     private static final int COMMAND_EVEN = 2;
     private static final int COMMAND_CALC = 3;
     private static final int COMMAND_GCD = 4;
-    private static final int COMMAND_PRIME = 5;
-    private static final int COMMAND_PROGRESSION = 6;
+    private static final int COMMAND_PROGRESSION = 5;
+    private static final int COMMAND_PRIME = 6;
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        String gamerName = CliUtility.helloPlayerInGame(scanner);
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println(COMMAND_EXIT + " - Exit");
@@ -25,8 +24,8 @@ public class App {
         System.out.println(COMMAND_EVEN + " - Even");
         System.out.println(COMMAND_CALC + " - Calc");
         System.out.println(COMMAND_GCD + " - GCD");
-        System.out.println(COMMAND_PRIME + " - Prime");
         System.out.println(COMMAND_PROGRESSION + " - Progression");
+        System.out.println(COMMAND_PRIME + " - Prime");
 
         String choiceLine = scanner.nextLine().trim();
         int commandNumber;
@@ -44,12 +43,12 @@ public class App {
         }
 
         switch (commandNumber) {
-            case COMMAND_GREET -> System.out.println("Hello, " + gamerName + "!");
-            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, gamerName, scanner);
-            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, gamerName, scanner);
-            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, gamerName, scanner);
-            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, gamerName, scanner);
-            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, gamerName, scanner);
+            case COMMAND_GREET ->  CliUtility.helloPlayerInGame(scanner);
+            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, scanner);
+            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, scanner);
+            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, scanner);
+            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, scanner);
+            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, scanner);
             default -> System.out.println("Unknown command. Please choose "
                     + COMMAND_EXIT + ", "
                     + COMMAND_GREET + ", "
