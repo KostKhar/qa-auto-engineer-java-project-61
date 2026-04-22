@@ -10,8 +10,8 @@ public class App {
     private static final int COMMAND_EVEN = 2;
     private static final int COMMAND_CALC = 3;
     private static final int COMMAND_GCD = 4;
-    private static final int COMMAND_PRIME = 5;
-    private static final int COMMAND_PROGRESSION = 6;
+    private static final int COMMAND_PROGRESSION = 5;
+    private static final int COMMAND_PRIME = 6;
 
     public static void main(String[] args) {
 
@@ -47,8 +47,8 @@ public class App {
             case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, scanner);
             case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, scanner);
             case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, scanner);
-            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, scanner);
             case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, scanner);
+            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, scanner);
             default -> System.out.println("Unknown command. Please choose "
                     + COMMAND_EXIT + ", "
                     + COMMAND_GREET + ", "
