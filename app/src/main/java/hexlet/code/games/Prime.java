@@ -7,8 +7,8 @@ public final class Prime {
     private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
     private static final Random RANDOM = new Random();
     private static final int THREE = 3;
-    private static final int FIVE = 3;
-    private static final int SIX = 3;
+    private static final int FIVE = 5;
+    private static final int SIX = 6;
 
 
     private Prime() {
