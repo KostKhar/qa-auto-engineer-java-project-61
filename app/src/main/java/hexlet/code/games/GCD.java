@@ -5,14 +5,16 @@ import java.util.Random;
 public final class GCD {
     private static final String RULE = "Find the greatest common divisor of given numbers.";
     private static final Random RANDOM = new Random();
+    private static final int MAX_STEP = 8;
+    private static final int MIN_STEP = 1;
 
     private GCD() {
     }
 
     public static String[] generateRound() {
-        int number = RANDOM.nextInt(1, 10);
-        int number1 = number * RANDOM.nextInt(1, 7);
-        int number2 = number * RANDOM.nextInt(1, 8);
+        int number = RANDOM.nextInt(MIN_STEP, MAX_STEP);
+        int number1 = number * RANDOM.nextInt(MIN_STEP, MAX_STEP);
+        int number2 = number * RANDOM.nextInt(MIN_STEP, MAX_STEP);
         return new String[]{number1 + " " + number2, gcd(number1, number2).toString()};
     }
 
