@@ -24,8 +24,8 @@ public class App {
         System.out.println(COMMAND_EVEN + " - Even");
         System.out.println(COMMAND_CALC + " - Calc");
         System.out.println(COMMAND_GCD + " - GCD");
-        System.out.println(COMMAND_PRIME + " - Prime");
         System.out.println(COMMAND_PROGRESSION + " - Progression");
+        System.out.println(COMMAND_PRIME + " - Prime");
 
         String choiceLine = scanner.nextLine().trim();
         int commandNumber;

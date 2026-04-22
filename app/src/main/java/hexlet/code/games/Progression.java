@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public final class Progression {
-    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String RULE = "What number is missing in the progression?";
     private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
     private static final Random RANDOM = new Random();
 
