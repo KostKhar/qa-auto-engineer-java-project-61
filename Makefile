@@ -37,6 +37,20 @@ lint:
 check-deps:
 	cd app && ./gradlew dependencyUpdates -Drevision=release
 
+play-calc:
+	asciinema play ./app/src/main/resources/calc.cast
+
+play-even:
+	asciinema play ./app/src/main/resources/even.cast
+
+play-gsd:
+	asciinema play ./app/src/main/resources/gsd.cast
+
+play-prime:
+	asciinema play ./app/src/main/resources/prime.cast
+
+play-progression:
+	asciinema play ./app/src/main/resources/progression.cast
 
 build-run: build run
 

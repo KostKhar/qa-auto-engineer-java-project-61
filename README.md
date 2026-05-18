@@ -48,7 +48,30 @@ make lint
 ```bash
 make update
 ```
+## Play Calculator Game 
+```bash
+make play-calc
+```
 
+## Play Even Game
+```bash
+make play-even
+```
+
+## Play GSD Game
+```bash
+make play-gsd
+```
+
+## Play Prime Game
+```bash
+make play-prime
+```
+
+## Play Progression Game
+```bash
+make play-progression
+```
 ## asdf
 
 On *nix and macOS to manage Java versions we recommend using asdf https://github.com/asdf-vm/asdf.
