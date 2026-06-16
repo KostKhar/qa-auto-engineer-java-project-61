@@ -1,12 +1,16 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public final class Progression {
     private static final String RULE = "What number is missing in the progression?";
+    private static final int ROUNDS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 100;
     private static final Random RANDOM = new Random();
     private static final int MAX_STEP = 5;
@@ -14,6 +18,14 @@ public final class Progression {
     private static final int LENGTH_OF_ARRAY = 10;
 
     private Progression() {
+    }
+
+    public static void play(Scanner scanner) {
+        String[][] rounds = new String[ROUNDS_COUNT][2];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            rounds[i] = generateRound();
+        }
+        Engine.run(RULE, rounds, scanner);
     }
 
     public static String[] generateRound() {
@@ -40,7 +52,4 @@ public final class Progression {
         return progression;
     }
 
-    public static String getRules() {
-        return RULE;
-    }
 }

@@ -1,25 +1,15 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
-
 import java.util.Scanner;
 
 public class Engine {
 
-    private static final int MAX_ROUNDS = 3;
+    public static void run(String rules, String[][] rounds, Scanner scanner) {
+        String gamerName = Cli.greet();
 
-    public static void run(GameId gameId, Scanner scanner) {
-        String gamerName = CliUtility.helloPlayerInGame(scanner);
+        System.out.println(rules);
 
-        System.out.println(getRules(gameId));
-
-        for (int i = 0; i < MAX_ROUNDS; i++) {
-            String[] round = generateRound(gameId);
+        for (String[] round : rounds) {
             String question = round[0];
             String correctAnswer = round[1];
 
@@ -38,33 +28,5 @@ public class Engine {
         }
 
         System.out.println("Congratulations, " + gamerName + "!");
-    }
-
-    private static String getRules(GameId gameId) {
-        return switch (gameId) {
-            case EVEN -> Even.getRules();
-            case CALC -> Calc.getRules();
-            case GCD -> GCD.getRules();
-            case PRIME -> Prime.getRules();
-            case PROGRESSION -> Progression.getRules();
-        };
-    }
-
-    private static String[] generateRound(GameId gameId) {
-        return switch (gameId) {
-            case EVEN -> Even.generateRound();
-            case CALC -> Calc.generateRound();
-            case GCD -> GCD.generateRound();
-            case PRIME -> Prime.generateRound();
-            case PROGRESSION -> Progression.generateRound();
-        };
-    }
-
-    public enum GameId {
-        EVEN,
-        CALC,
-        GCD,
-        PRIME,
-        PROGRESSION
     }
 }

@@ -1,9 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public final class Calc {
     private static final String RULE = "What is the result of the expression?";
+    private static final int ROUNDS_COUNT = 3;
     private static final int MAX_RANDOM_NUMBER_EXCLUSIVE = 10;
     private static final Random RANDOM = new Random();
     private static final char[] OPERATIONS = {'+', '-', '*'};
@@ -11,8 +15,12 @@ public final class Calc {
     private Calc() {
     }
 
-    public static String getRules() {
-        return RULE;
+    public static void play(Scanner scanner) {
+        String[][] rounds = new String[ROUNDS_COUNT][2];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            rounds[i] = generateRound();
+        }
+        Engine.run(RULE, rounds, scanner);
     }
 
     public static String[] generateRound() {

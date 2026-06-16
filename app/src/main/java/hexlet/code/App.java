@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -43,12 +49,12 @@ public class App {
         }
 
         switch (commandNumber) {
-            case COMMAND_GREET ->  CliUtility.helloPlayerInGame(scanner);
-            case COMMAND_EVEN -> Engine.run(Engine.GameId.EVEN, scanner);
-            case COMMAND_CALC -> Engine.run(Engine.GameId.CALC, scanner);
-            case COMMAND_GCD -> Engine.run(Engine.GameId.GCD, scanner);
-            case COMMAND_PROGRESSION -> Engine.run(Engine.GameId.PROGRESSION, scanner);
-            case COMMAND_PRIME -> Engine.run(Engine.GameId.PRIME, scanner);
+            case COMMAND_GREET -> Greet.play();
+            case COMMAND_EVEN -> Even.play(scanner);
+            case COMMAND_CALC -> Calc.play(scanner);
+            case COMMAND_GCD -> GCD.play(scanner);
+            case COMMAND_PROGRESSION -> Progression.play(scanner);
+            case COMMAND_PRIME -> Prime.play(scanner);
             default -> System.out.println("Unknown command. Please choose "
                     + COMMAND_EXIT + ", "
                     + COMMAND_GREET + ", "
