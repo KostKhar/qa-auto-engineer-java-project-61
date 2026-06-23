@@ -1,8 +1,18 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class Engine {
+    public static final int ROUNDS_COUNT = 3;
+
+    public static void run(String rules, Supplier<String[]> roundGenerator, Scanner scanner) {
+        String[][] rounds = new String[ROUNDS_COUNT][2];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            rounds[i] = roundGenerator.get();
+        }
+        run(rules, rounds, scanner);
+    }
 
     public static void run(String rules, String[][] rounds, Scanner scanner) {
         String gamerName = Cli.greet();

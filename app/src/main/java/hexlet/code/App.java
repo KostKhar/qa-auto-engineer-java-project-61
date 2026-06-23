@@ -3,7 +3,6 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Greet;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
@@ -49,7 +48,7 @@ public class App {
         }
 
         switch (commandNumber) {
-            case COMMAND_GREET -> Greet.play();
+            case COMMAND_GREET -> Cli.greet();
             case COMMAND_EVEN -> Even.play(scanner);
             case COMMAND_CALC -> Calc.play(scanner);
             case COMMAND_GCD -> GCD.play(scanner);
